@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:movieapp/homeScreenWidgets/rate.dart';
 import 'package:movieapp/model/constant.dart';
 
-class RecomendScreen extends StatelessWidget {
+class RecomendScreen extends StatefulWidget {
   RecomendScreen({
     super.key,
     required this.snapshot,
   });
 
   final AsyncSnapshot snapshot;
+
+  @override
+  State<RecomendScreen> createState() => _RecomendScreenState();
+}
+
+class _RecomendScreenState extends State<RecomendScreen> {
+  String isSave = "assets/images/bookmark.png";
 
 //Results results;
   @override
@@ -29,21 +36,45 @@ class RecomendScreen extends StatelessWidget {
                 width: 105,
                 child: Column(
                   children: [
-                    Image.network(
-                      "${Constant.imagePathe}${snapshot.data[index]!.posterPath}",
-                      width: 105,
-                      height: 130,
-                      fit: BoxFit.fill,
-                      filterQuality: FilterQuality.high,
+                    Stack(
+                      children: [
+                        Image.network(
+                          "${Constant.imagePathe}${widget.snapshot.data[index]!.posterPath}",
+                          width: 105,
+                          height: 130,
+                          fit: BoxFit.fill,
+                          filterQuality: FilterQuality.high,
+                        ),
+                        Positioned(
+                          // left:1,
+                          //top: ,
+                          right: 62,
+                          bottom: 83,
+                          child: FloatingActionButton(
+                              backgroundColor: Colors.transparent,
+                              onPressed: () {
+                                isSave = ("assets/images/bookmarkright.png");
+                                setState(() {
+                                  Image.asset(
+                                    "${isSave}",
+                                  );
+                                });
+                              },
+                              child: Image.asset(
+                                "${isSave}",
+                              )),
+                        )
+                      ],
                     ),
-                    Expanded(child: Rate(results: snapshot.data![index]))
+                    Expanded(
+                        child: Rate(results: widget.snapshot.data![index])),
                   ],
                 ),
               ),
             ),
           );
         },
-        itemCount: snapshot.data.length,
+        itemCount: widget.snapshot.data.length,
       ),
     );
   }

@@ -3,14 +3,12 @@ import 'package:movieapp/api/api.dart';
 import 'package:movieapp/homeScreenWidgets/newReleases.dart';
 import 'package:movieapp/homeScreenWidgets/popularScreeen.dart';
 import 'package:movieapp/homeScreenWidgets/recomendScreen.dart';
+import 'package:movieapp/model/Recomended2/rec.dart';
 import 'package:movieapp/model/Results.dart';
-import 'package:movieapp/model/recomenddedResponse/Dates.dart';
-
-//import '../model/recomenddedResponse/Results.dart';
+import 'package:movieapp/model/recomenRes/recomend.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "homeScreen";
-  int insex = 0;
 
   HomeScreen({super.key});
 
@@ -19,9 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // late Future<List<Results>> popularScreen  ;
+  // late Future<List<Results>> releasesScreen;
+  late Future<List<Recomend>> recomendedScreen;
   late Future<List<Results>> popularScreen;
-  late Future<List<Results>> releasesScreen;
-  late Future<List<Dates>> recomendedScreen;
+
+  late Future<List<Rec>> releasesScreen;
 
   @override
   void initState() {
@@ -136,12 +137,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 12,
                         ),
                         FutureBuilder(
-                          future: releasesScreen,
+                          future: recomendedScreen,
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
                               return Center(child: CircularProgressIndicator());
                             } else if (snapshot.hasError) {
+                              print(snapshot.error.toString());
                               return Center(
                                 child: Column(
                                   children: [
@@ -153,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               );
                             }
-                            int index = 0;
+                            //  int index = 0;
                             return RecomendScreen(
                               snapshot: snapshot,
                             );

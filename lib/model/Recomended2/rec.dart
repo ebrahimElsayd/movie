@@ -10,11 +10,11 @@
 /// release_date : "2023-10-25"
 /// title : "Five Nights at Freddy's"
 /// video : false
-/// vote_average : 8.266
-/// vote_count : 1568
+/// vote_average : 8.246
+/// vote_count : 1594
 
-class Recomend {
-  Recomend({
+class Rec {
+  Rec({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -31,7 +31,7 @@ class Recomend {
     this.voteCount,
   });
 
-  Recomend.fromJson(dynamic json) {
+  Rec.fromJson(dynamic json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [];
@@ -47,7 +47,6 @@ class Recomend {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
-
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
@@ -63,7 +62,7 @@ class Recomend {
   double? voteAverage;
   int? voteCount;
 
-  Recomend copyWith({
+  Rec copyWith({
     bool? adult,
     String? backdropPath,
     List<int>? genreIds,
@@ -79,7 +78,7 @@ class Recomend {
     double? voteAverage,
     int? voteCount,
   }) =>
-      Recomend(
+      Rec(
         adult: adult ?? this.adult,
         backdropPath: backdropPath ?? this.backdropPath,
         genreIds: genreIds ?? this.genreIds,

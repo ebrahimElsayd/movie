@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:movieapp/model/Results.dart';
+import 'package:movieapp/model/recomenRes/recomend.dart';
+
+//import 'package:movieapp/model/rec.dart';
+//import 'package:movieapp/model/recomenddedResponse/recomend.dart';
 
 class Rate extends StatelessWidget {
   Rate({super.key, required this.results});
 
-  Results results;
+  Recomend results;
+
+  // Results results;
+  // Rec results;
 
   @override
   Widget build(BuildContext context) {

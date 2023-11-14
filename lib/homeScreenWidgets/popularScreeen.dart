@@ -51,52 +51,22 @@ class PopularScreen extends StatelessWidget {
                         size: 60,
                       )),
                   Positioned(
-                      top: 10,
-                      left: 5,
-                      child: Icon(
-                        Icons.bookmark,
-                        color: Color(0xFF514F4F),
-                        size: 50,
-                      )),
-                  Positioned(
-                      top: 100,
-                      left: 4,
-                      child: FloatingActionButton(
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.blue,
-                          size: 30,
-                        ),
-                        backgroundColor: Colors.transparent,
-                        elevation: 0,
-                      )),
-
-                  Positioned(
                       bottom: 0,
                       left: 180,
                       child: MovieName(
-                          results: snapshot.data![index], snapshot: snapshot)),
+                          //rec: snapshot.data![index], snapshot: snapshot)),
+                          results: snapshot.data![index],
+                          snapshot: snapshot)),
                   Container(
                     alignment: Alignment.bottomLeft,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
                         child: Small(
+
+                            // rec: snapshot.data![index],
                             results: snapshot.data![index],
                             snapshot: snapshot)),
                   ),
-                  //  SizedBox(
-                  //  child: cu,
-                  // )
-                  // BookMarkIconButton(
-                  //   iconSize: 20,
-                  //
-                  //     isSaved:
-                  //   true,
-                  //     onPressed:(){
-                  //
-                  //     }, padding: EdgeInsets.all(1),
-                  // ),
                 ],
               ),
             ),

@@ -11,7 +11,6 @@ class Dates {
     maximum = json['maximum'];
     minimum = json['minimum'];
   }
-
   String? maximum;
   String? minimum;
 

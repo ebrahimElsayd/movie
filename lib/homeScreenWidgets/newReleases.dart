@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/model/constant.dart';
 
-class ReleasesScreen extends StatelessWidget {
+class ReleasesScreen extends StatefulWidget {
   final AsyncSnapshot snapshot;
 
-  const ReleasesScreen(this.snapshot, {super.key});
+  ReleasesScreen(this.snapshot, {super.key});
+
+  @override
+  State<ReleasesScreen> createState() => _ReleasesScreenState();
+}
+
+class _ReleasesScreenState extends State<ReleasesScreen> {
+  String isSave = "assets/images/bookmark.png";
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +31,35 @@ class ReleasesScreen extends StatelessWidget {
                 child: SizedBox(
                   height: 140,
                   width: 100,
-                  child: Image.network(
-                    "${Constant.imagePathe}${snapshot.data[index].posterPath}",
-                    width: 100,
-                    height: 130,
-                    fit: BoxFit.fill,
-                    filterQuality: FilterQuality.high,
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        "${Constant.imagePathe}${widget.snapshot.data![index].posterPath}",
+                        width: 100,
+                        height: 130,
+                        fit: BoxFit.fill,
+                        filterQuality: FilterQuality.high,
+                      ),
+                      Positioned(
+                        right: 59,
+                        bottom: 98,
+                        child: FloatingActionButton(
+                            backgroundColor: Colors.transparent,
+                            onPressed: () {
+                              isSave = ("assets/images/bookmarkright.png");
+                              setState(() {});
+                            },
+                            child: Image.asset(
+                              "${isSave}",
+                            )),
+                      )
+                    ],
                   ),
                 ),
               ),
             );
           },
-          itemCount: snapshot.data.length,
+          itemCount: widget.snapshot.data.length,
         ),
       ),
     );
