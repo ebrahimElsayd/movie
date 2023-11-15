@@ -30,14 +30,22 @@ class PopularScreen extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: SizedBox(
-                      height: 300,
-                      //  width: double.infinity,
-                      width: 430,
-                      child: Image.network(
-                        "${Constant.imagePathe}${snapshot.data[index].posterPath}",
-                        fit: BoxFit.fill,
-                        filterQuality: FilterQuality.high,
+                    child: Hero(
+                      tag: index.toString(),
+                      child: GestureDetector(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed(MovieDetails.routName,arguments: snapshot.data![index]);
+                        },
+                        child: SizedBox(
+                          height: 300,
+                          //  width: double.infinity,
+                          width: 430,
+                          child: Image.network(
+                            "${Constant.imagePathe}${snapshot.data[index].posterPath}",
+                            fit: BoxFit.fill,
+                            filterQuality: FilterQuality.high,
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
+        //MovieDetails.routName:(_)=>MovieDetails()
       },
       initialRoute: HomeScreen.routeName,
       debugShowCheckedModeBanner: false,
