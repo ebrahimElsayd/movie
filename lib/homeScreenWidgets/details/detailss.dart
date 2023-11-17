@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/api/api.dart';
-import 'package:movieapp/homeScreenWidgets/rate.dart';
 import 'package:movieapp/homeScreenWidgets/recomendScreen.dart';
-import 'package:movieapp/model/Results.dart';
 import 'package:movieapp/model/constant.dart';
 import 'package:movieapp/model/detail/Details.dart';
 
