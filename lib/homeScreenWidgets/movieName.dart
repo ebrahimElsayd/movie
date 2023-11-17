@@ -1,4 +1,7 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:movieapp/model/detail/Details.dart';
 
 import '../model/Results.dart';
 
@@ -10,8 +13,8 @@ class MovieName extends StatelessWidget {
       required this.snapshot});
 
   final AsyncSnapshot snapshot;
-  Results results;
-
+  // Results results;
+  Details results;
   //Rec rec;
 
   @override

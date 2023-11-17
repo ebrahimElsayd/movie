@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/homeScreenWidgets/details/detailss.dart';
 import 'package:movieapp/homeScreenWidgets/movieName.dart';
 import 'package:movieapp/homeScreenWidgets/smallpopular.dart';
 import 'package:movieapp/model/constant.dart';
@@ -17,7 +18,7 @@ class PopularScreen extends StatelessWidget {
     return SizedBox(
       // width: 200,
       width: double.infinity,
-      height: 350,
+      height: 290,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -37,7 +38,7 @@ class PopularScreen extends StatelessWidget {
                           // Navigator.of(context).pushNamed(MovieDetails.routName,arguments: snapshot.data![index]);
                         },
                         child: SizedBox(
-                          height: 300,
+                          height: 220,
                           //  width: double.infinity,
                           width: 430,
                           child: Image.network(
@@ -69,11 +70,16 @@ class PopularScreen extends StatelessWidget {
                     alignment: Alignment.bottomLeft,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Small(
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).pushNamed(MovieDetails.routName,arguments:snapshot.data[index] );
+                          },
+                          child: Small(
 
-                            // rec: snapshot.data![index],
-                            results: snapshot.data![index],
-                            snapshot: snapshot)),
+                              // rec: snapshot.data![index],
+                              results: snapshot.data![index],
+                              snapshot: snapshot),
+                        )),
                   ),
                 ],
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/homeScreenWidgets/details/detailss.dart';
 import 'package:movieapp/model/constant.dart';
+import 'package:movieapp/model/detail/Details.dart';
 
 class ReleasesScreen extends StatefulWidget {
   final AsyncSnapshot snapshot;
@@ -20,7 +22,7 @@ class _ReleasesScreenState extends State<ReleasesScreen> {
       child: SizedBox(
         width: double.infinity,
         // width: double.infinity,
-        height: 160,
+        height: 150,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
@@ -29,16 +31,21 @@ class _ReleasesScreenState extends State<ReleasesScreen> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: SizedBox(
-                  height: 140,
+                  height: 130,
                   width: 100,
                   child: Stack(
                     children: [
-                      Image.network(
-                        "${Constant.imagePathe}${widget.snapshot.data![index].posterPath}",
-                        width: 100,
-                        height: 130,
-                        fit: BoxFit.fill,
-                        filterQuality: FilterQuality.high,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushNamed(MovieDetails.routName,arguments:widget.snapshot.data[index] );
+                        },
+                        child: Image.network(
+                          "${Constant.imagePathe}${widget.snapshot.data![index].posterPath}",
+                          width: 100,
+                          height: 140,
+                          fit: BoxFit.fill,
+                          filterQuality: FilterQuality.high,
+                        ),
                       ),
                       Positioned(
                         right: 59,

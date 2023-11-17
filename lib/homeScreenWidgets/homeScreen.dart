@@ -5,6 +5,7 @@ import 'package:movieapp/homeScreenWidgets/popularScreeen.dart';
 import 'package:movieapp/homeScreenWidgets/recomendScreen.dart';
 import 'package:movieapp/model/Recomended2/rec.dart';
 import 'package:movieapp/model/Results.dart';
+import 'package:movieapp/model/detail/Details.dart';
 import 'package:movieapp/model/recomenRes/recomend.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,11 +19,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // late Future<List<Results>> popularScreen  ;
-  // late Future<List<Results>> releasesScreen;
-  late Future<List<Recomend>> recomendedScreen;
-  late Future<List<Results>> popularScreen;
-
-  late Future<List<Rec>> releasesScreen;
+  late Future<List<Details>> releasesScreen;
+  // late Future<List<Recomend>> recomendedScreen;
+  late Future<List<Details>> recomendedScreen;
+  // late Future<List<Results>> popularScreen;
+  late Future<List<Details>> popularScreen;
+  //late Future<List<Rec>> releasesScreen;
 
   @override
   void initState() {
@@ -72,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 22,
+                  height: 15,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
@@ -89,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 18),
                         ),
                         SizedBox(
-                          height: 12,
+                          height: 10,
                         ),
                         FutureBuilder(
                           future: releasesScreen,
@@ -134,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 18),
                         ),
                         SizedBox(
-                          height: 12,
+                          height: 8,
                         ),
                         FutureBuilder(
                           future: recomendedScreen,

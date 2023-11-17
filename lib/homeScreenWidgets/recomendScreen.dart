@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/homeScreenWidgets/details/detailss.dart';
 import 'package:movieapp/homeScreenWidgets/rate.dart';
 import 'package:movieapp/model/constant.dart';
 
@@ -9,6 +10,7 @@ class RecomendScreen extends StatefulWidget {
   });
 
   final AsyncSnapshot snapshot;
+  String isSave = "assets/images/bookmark.png";
 
   @override
   State<RecomendScreen> createState() => _RecomendScreenState();
@@ -38,12 +40,19 @@ class _RecomendScreenState extends State<RecomendScreen> {
                   children: [
                     Stack(
                       children: [
-                        Image.network(
-                          "${Constant.imagePathe}${widget.snapshot.data[index]!.posterPath}",
-                          width: 105,
-                          height: 130,
-                          fit: BoxFit.fill,
-                          filterQuality: FilterQuality.high,
+                        GestureDetector(
+
+                            onTap: (){
+                              Navigator.of(context).pushNamed(MovieDetails.routName,arguments:widget.snapshot.data[index] );
+
+                          },
+                          child: Image.network(
+                            "${Constant.imagePathe}${widget.snapshot.data[index]!.posterPath}",
+                            width: 105,
+                            height: 130,
+                            fit: BoxFit.fill,
+                            filterQuality: FilterQuality.high,
+                          ),
                         ),
                         Positioned(
                           // left:1,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/model/constant.dart';
+import 'package:movieapp/model/detail/Details.dart';
 
 import '../model/Results.dart';
 
@@ -12,7 +13,8 @@ class Small extends StatefulWidget {
       required this.snapshot});
 
   final AsyncSnapshot snapshot;
-  Results results;
+  // Results results;
+  Details results;
 
   @override
   State<Small> createState() => _SmallState();
